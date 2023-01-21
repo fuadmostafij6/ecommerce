@@ -2,8 +2,7 @@ import 'package:e_commercefullproject/globalBindings/bindings.dart';
 import 'package:e_commercefullproject/screen/auth/find_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/adapters.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 Future<void> main() async {
   await Hive.initFlutter();
