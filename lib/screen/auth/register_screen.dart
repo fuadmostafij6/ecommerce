@@ -54,7 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 fontSize: 21,
                                 fontWeight: FontWeight.bold,
                                 color: Color(0XFFd9d2fe)))),
-                        Text("Sing Up Discover Amazing thing Near\n Around you",style: GoogleFonts.roboto(
+                        Text("Sing Up Discover Amazing thing Near Around you",style: GoogleFonts.roboto(
                             textStyle: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
@@ -118,7 +118,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 //   height: 35,
                                 // ),
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 10,right: 10),
+                                  padding: const EdgeInsets.only(left: 10,right: 10,top:35),
                                   child: Container(
                                     height: 50,
                                     decoration: BoxDecoration(
@@ -150,7 +150,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                                 SizedBox(height: 10),
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 10,right: 10),
+                                  padding: const EdgeInsets.only(left: 10,right: 10,top: 10),
                                   child: Container(
                                     height: 50,
                                     decoration: BoxDecoration(
@@ -182,7 +182,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                                 SizedBox(height: 10),
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 10,right: 10),
+                                  padding: const EdgeInsets.only(left: 10,right: 10,top: 10),
                                   child: Container(
                                     height: 50,
                                     decoration: BoxDecoration(
@@ -214,7 +214,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                                 SizedBox(height: 10),
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 10,right: 10),
+                                  padding: const EdgeInsets.only(left: 10,right: 10,top: 10),
                                   child: Container(
                                     height: 50,
                                     decoration: BoxDecoration(
@@ -247,7 +247,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 SizedBox(height: 10),
                                 Padding(
                                   padding:
-                                  const EdgeInsets.only(left: 10, right: 10),
+                                  const EdgeInsets.only(left: 10, right: 10,top: 10),
                                   child: Container(
                                       decoration: BoxDecoration(
                                         color: Color(0xFf7972e6),
@@ -292,7 +292,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             // ),
 
 
-            SizedBox(height: 220,),
+            SizedBox(height: 290,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -318,7 +318,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 30,),
 
             Padding(
               padding: const EdgeInsets.only(left: 15,right: 15),

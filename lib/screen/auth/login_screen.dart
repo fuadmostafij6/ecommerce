@@ -1,19 +1,14 @@
+import 'package:e_commercefullproject/controller/authentic_controller.dart';
 import 'package:e_commercefullproject/screen/auth/register_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends GetView<AutheticationController>{
   const LoginScreen({Key? key}) : super(key: key);
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController emailcontrollar=TextEditingController();
-  final TextEditingController passwordcontrollar=TextEditingController();
-
-  @override
   Widget build(BuildContext context) {
+
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -44,17 +39,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         // SizedBox(height: 10,),
-                        Text("Sing In",style: GoogleFonts.aladin(
-                            textStyle: TextStyle(
-                                fontSize: 21,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0XFFd9d2fe)))),
-                        Text("Sing In Discover Amazing thing Near\n Around you",style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0XFFd9d2fe))))
-
+                        Text("Sing In",
+                            style: GoogleFonts.aladin(
+                                textStyle: TextStyle(
+                                    fontSize: 21,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0XFFd9d2fe)))),
+                        Text("Sing In Discover Amazing thing Near Around you",
+                            style: GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0XFFd9d2fe))))
                       ],
                     ),
                   ),
@@ -74,10 +70,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 //               ),
                 //               fit: BoxFit.fill)),
                 //     )),
-                Align(
-                 alignment: Alignment.bottomCenter,
-
+                Padding(
+                  padding:
+                      const EdgeInsets.only(top: 118.0, left: 12, right: 12),
                   child: Container(
+                      alignment: Alignment.bottomCenter,
                       height: size.height * 0.4,
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -87,16 +84,15 @@ class _LoginScreenState extends State<LoginScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-
                             Padding(
-                              padding: const EdgeInsets.only(left: 10,right: 10),
+                              padding:
+                                  const EdgeInsets.only(left: 10, right: 10),
                               child: Container(
                                 height: 50,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15)
-                                ),
+                                    borderRadius: BorderRadius.circular(15)),
                                 child: TextField(
-                                  controller:emailcontrollar,
+                                  controller: controller.emailcontrollar,
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     hintText: 'Email',
@@ -104,15 +100,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                     fillColor: Color(0xFFefefef),
                                     enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
-                                        borderSide:BorderSide(color:Colors.white60)
-                                    ),
+                                        borderSide:
+                                            BorderSide(color: Colors.white60)),
                                     focusedBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
-                                        borderSide:BorderSide(
-                                            color: Colors.white60,
-                                            width: 1
-                                        )
-                                    ),
+                                        borderSide: BorderSide(
+                                            color: Colors.white60, width: 1)),
                                     prefixIcon: Icon(Icons.email),
                                   ),
                                 ),
@@ -120,14 +113,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             SizedBox(height: 10),
                             Padding(
-                              padding: const EdgeInsets.only(left: 10,right: 10),
+                              padding:
+                                  const EdgeInsets.only(left: 10, right: 10),
                               child: Container(
                                 height: 50,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15)
-                                ),
+                                    borderRadius: BorderRadius.circular(15)),
                                 child: TextField(
-                                  controller:passwordcontrollar,
+                                  controller: controller.passwordcontrollar,
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     hintText: 'Password',
@@ -135,50 +128,52 @@ class _LoginScreenState extends State<LoginScreen> {
                                     fillColor: Color(0xFFefefef),
                                     enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
-                                        borderSide:BorderSide(color:Colors.white60)
-                                    ),
+                                        borderSide:
+                                            BorderSide(color: Colors.white60)),
                                     focusedBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
-                                        borderSide:BorderSide(
-                                            color: Colors.white60,
-                                            width: 1
-                                        )
-                                    ),
+                                        borderSide: BorderSide(
+                                            color: Colors.white60, width: 1)),
                                     prefixIcon: Icon(Icons.key),
                                   ),
-
                                 ),
                               ),
                             ),
                             SizedBox(height: 10),
-                            Padding(
-                              padding:
-                              const EdgeInsets.only(left: 10, right: 10),
-                              child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFf7972e6),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(13.0),
-                                    child: Center(
-                                      child: Text(
-                                        "Sing In",
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white),
-                                      ),
+                            GestureDetector(
+                              onTap: (){
+                                controller.setLoginMethod();
+                              },
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 10, right: 10),
+                                child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFf7972e6),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                  )),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(13.0),
+                                      child: Center(
+                                        child: Text(
+                                          "Sing In",
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white),
+                                        ),
+                                      ),
+                                    )),
+                              ),
                             ),
                             SizedBox(height: 10),
-                            Text("Forgot Password?", style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0XFF7972e6),
-                                fontSize: 12),)
-
-
+                            Text(
+                              "Forgot Password?",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0XFF7972e6),
+                                  fontSize: 12),
+                            )
                           ])),
                 )
               ],
@@ -197,8 +192,9 @@ class _LoginScreenState extends State<LoginScreen> {
             //   ),
             // ),
 
-
-            SizedBox(height: 190,),
+            SizedBox(
+              height: 22,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -212,7 +208,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(width: 10),
                 Text(
                   'Login using Social Media',
-                  style: TextStyle(color: Color(0xff818181), fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                      color: Color(0xff818181), fontWeight: FontWeight.w500),
                 ),
                 SizedBox(width: 10),
                 Expanded(
@@ -224,17 +221,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 30,),
+            SizedBox(
+              height: 30,
+            ),
             Padding(
-              padding: const EdgeInsets.only(left: 15,right: 15),
+              padding: const EdgeInsets.only(left: 15, right: 15),
               child: Container(
                 // height: 10,
                 width: size.width,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(20)
-                ),
-                child:  Row(
+                    borderRadius: BorderRadius.circular(20)),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -245,8 +243,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: 55,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color:
-                            Color(0xFf5478b2).withOpacity(0.8)),
+                            color: Color(0xFf5478b2).withOpacity(0.8)),
                         child: Center(
                           child: Text(
                             "f",
@@ -265,8 +262,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: 55,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color:
-                            Color(0xFf50cafa).withOpacity(0.8)),
+                            color: Color(0xFf50cafa).withOpacity(0.8)),
                         child: Center(
                           child: Text(
                             "t",
@@ -285,8 +281,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: 55,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color:
-                            Color(0xFffc6254).withOpacity(0.8)),
+                            color: Color(0xFffc6254).withOpacity(0.8)),
                         child: Center(
                           child: Text(
                             "g",
@@ -305,31 +300,32 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: 55,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color:
-                            Color(0xFf5478b2).withOpacity(0.8)),
+                            color: Color(0xFf5478b2).withOpacity(0.8)),
                         child: Center(
                             child: Icon(
-                              Icons.phone_android_outlined,
-                              size: 25,
-                              color: Colors.white60,
-                            )
+                          Icons.phone_android_outlined,
+                          size: 25,
+                          color: Colors.white60,
+                        )
 
-                          // Text("f",style: TextStyle(fontWeight: FontWeight.bold
-                          //     ,color: Colors.white,fontSize: 30),),
-                        ),
+                            // Text("f",style: TextStyle(fontWeight: FontWeight.bold
+                            //     ,color: Colors.white,fontSize: 30),),
+                            ),
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-            SizedBox(height: 25,),
+            SizedBox(
+              height: 25,
+            ),
             Align(
               alignment: Alignment.topCenter,
               child: InkWell(
-                onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (_)=>RegisterScreen()));
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => RegisterScreen()));
                 },
                 child: Text(
                   "SKIP",
