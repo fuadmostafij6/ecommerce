@@ -60,4 +60,52 @@ class LoginRepo {
   }
 }
 
-class RegisterRepo {}
+class RegisterRepo {
+  final Dio _dio = Dio();
+  var box = Hive.box('user');
+  // LoginModel? loginModel;
+  Future postRegisteredMethod(String email, String password, String confirmPass) async {
+    (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+        (HttpClient dioClient) {
+      dioClient.badCertificateCallback =
+      ((X509Certificate cert, String host, int port) => true);
+      return dioClient;
+    };
+
+    try {
+      var response = await _dio.post(
+        "${API_URL.BASE_URL}auth/login",
+        queryParameters: {
+          "email": "$email",
+          "password": "$password",
+          "passowrd_confirmation": "$password",
+          "register_by": "email",
+        },
+      );
+      print("response___${response.data["message"]}");
+      if (response.statusCode == 200) {
+       // box.put('token', "${response.data["access_token"]}");
+        box.put('userid', "${response.data["user_id"]}");
+
+        ToastWidget().success("${response.data["message"]}");
+
+        print("Success");
+        /// Flutter Toast  Or  Dialogue Show .
+
+        Get.offAll(HomeScreen());
+
+
+
+        return response.data;
+      }
+    } catch (e) {
+      final errorMessage = DioExceptions.fromDioError(e as DioError).toString();
+
+
+      print("Error Message__$errorMessage");
+      ToastWidget().error("${errorMessage}");
+
+      throw Exception('Failed to load jobs from API $e');
+    }
+  }
+}
