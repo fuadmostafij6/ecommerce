@@ -14,11 +14,9 @@ class RegisterModel {
     this.message,
     this.userId,
   });
-
   bool? result;
   String? message;
   int? userId;
-
   factory RegisterModel.fromJson(Map<String, dynamic> json) => RegisterModel(
     result: json["result"],
     message: json["message"],

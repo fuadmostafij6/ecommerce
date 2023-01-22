@@ -1,5 +1,7 @@
-class API_URL{
 
- static const String BASE_URL = "https://khejuria.com/api/v2/";
 
-}
+ class BaseUrl{
+
+  static const BASE_URL="https://khejuria.com/api/v2/";
+
+ }

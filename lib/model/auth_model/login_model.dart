@@ -40,6 +40,7 @@ class LoginModel {
     "access_token": accessToken,
     "token_type": tokenType,
     "expires_at": expiresAt,
+    
     "user": user?.toJson(),
   };
 }
